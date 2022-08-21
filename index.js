@@ -10,9 +10,9 @@ require('colors')
 const Config = require('./config.json')
 const Logger = require('./lib/logger')
 const RabbitMQ = require('./lib/rabbit')
-const TurtleCoind = require('turtlecoin-rpc').TurtleCoind
+const XTCASHnetwork = require('@trrxitte/traaittcash-rpc').XTCASHnetwork
 
-const daemon = new TurtleCoind({
+const daemon = new XTCASHnetwork({
   host: Config.daemon.host,
   port: Config.daemon.port,
   timeout: Config.daemon.timeout
@@ -27,7 +27,7 @@ if (cluster.isMaster) {
     Logger.warning('Node.js is not running in production mode. Consider running in production mode: export NODE_ENV=production')
   }
 
-  Logger.log('Starting TurtlePay Blockchain Relay Agent...')
+  Logger.log('Starting traaittCASH Blockchain Relay Agent...')
 
   spawnNewWorker()
 
